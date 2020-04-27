@@ -1,9 +1,11 @@
 import actionTypes from "../Constants";
 
+const API_ONE = "https://www.atg.se/services/racinginfo/v1/api/products";
+const API_TWO = "https://www.atg.se/services/racinginfo/v1/api/games";
 
 export const gameAction = (gameType) => {
   return (dispatch) => {
-    fetch(`https://www.atg.se/services/racinginfo/v1/api/products/${gameType}`)
+    fetch(`${API_ONE}/${gameType}`)
       .then((res) => {
         const data = res.json();
         return data;
@@ -13,7 +15,7 @@ export const gameAction = (gameType) => {
         const array = data.upcoming ? data.upcoming : data.results;
         let closest = array[0].id;
 
-        fetch(` https://www.atg.se/services/racinginfo/v1/api/games/${closest}`)
+        fetch(`${API_TWO}/${closest}`)
           .then((res) => {
             const dataFetched = res.json();
             return dataFetched;
