@@ -23,7 +23,7 @@ const GameForm = () => {
               required
               value={gameType}
               onChange={(e) => setGameType(e.target.value)}
-              placeholder="Enter your game Type"
+              placeholder="Enter Your Game Type Allowed Values  V75, V65, V64, V4"
             />
           </div>
           <button
